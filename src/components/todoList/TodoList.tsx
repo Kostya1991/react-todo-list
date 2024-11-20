@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import {getTodoAll} from "../../store/todo/selectors/getTodoAll.selector";
 import {Todo} from "../../common/interfaces/Todo.interface";
 import {TodoCard} from "../todoCard/TodoCard";
+import AccessibilityIcon from "@mui/icons-material/Accessibility";
 
 export const TodoList = () => {
   const todos = useSelector(getTodoAll);
@@ -16,27 +17,42 @@ export const TodoList = () => {
       <Box
         sx={{
           flex: "1 1 100%",
-          border: "1px solid grey",
-          borderTop: "none",
-          padding: "12px 24px 24px 24px",
+          padding: "12px 0x 24px 0",
           overflow: "hidden",
           overflowY: "auto",
           height: "100%",
           boxSizing: "border-box",
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 1.5,
-            flex: "1 1 100%",
-          }}
-        >
-          {todos.map((todo: Todo) => (
-            <TodoCard todo={todo} key={todo.id} />
-          ))}
-        </Box>
+        {!!todos.length && (
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 1.5,
+              flex: "1 1 100%",
+            }}
+          >
+            {todos.map((todo: Todo) => (
+              <TodoCard todo={todo} key={todo.id} />
+            ))}
+          </Box>
+        )}
+
+        {!todos.length && (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              height: "100%",
+            }}
+          >
+            <Typography variant="h3">Нет активных задач</Typography>
+            <AccessibilityIcon color="success" sx={{fontSize: "256px"}} />
+          </Box>
+        )}
       </Box>
     </>
   );

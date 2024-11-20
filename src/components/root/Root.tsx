@@ -1,4 +1,3 @@
-import CssBaseline from "@mui/material/CssBaseline";
 import {ThemeProvider, createTheme} from "@mui/material/styles";
 
 import App from "../../App";
@@ -17,7 +16,6 @@ export const Root = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
       <App />
     </ThemeProvider>
   );
