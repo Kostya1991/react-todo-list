@@ -6,19 +6,19 @@ import {useSelector} from "react-redux";
 import {themeSelector} from "../../store/theme/selectors/theme.selector";
 
 export const Root = () => {
-    const mode = useSelector(themeSelector);
+  const mode = useSelector(themeSelector);
 
-    const theme = createTheme({
-        colorSchemes: {
-            dark: mode === "dark",
-            light: mode === "light",
-        },
-    });
+  const theme = createTheme({
+    colorSchemes: {
+      dark: mode === "dark",
+      light: mode === "light",
+    },
+  });
 
-    return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <App />
-        </ThemeProvider>
-    );
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
+  );
 };

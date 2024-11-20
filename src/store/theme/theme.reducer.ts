@@ -5,10 +5,10 @@ import {ThemeState} from "./types/state.type";
 const initialState: ThemeState = "light";
 
 export const themeReducer = (state: ThemeState = initialState, action: IAction) => {
-    switch (action.type) {
-        case THEME_CHANGE_NAME:
-            return action.payload;
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case THEME_CHANGE_NAME:
+      return action.payload;
+    default:
+      return state;
+  }
 };

@@ -7,12 +7,12 @@ import {rootReducer} from "./store/index.ts";
 import {createStore} from "redux";
 import {Root} from "./components/root/Root.tsx";
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 createRoot(document.getElementById("root")!).render(
-    <StrictMode>
-        <Provider store={store}>
-            <Root />
-        </Provider>
-    </StrictMode>,
+  <StrictMode>
+    <Provider store={store}>
+      <Root />
+    </Provider>
+  </StrictMode>,
 );
