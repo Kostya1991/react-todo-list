@@ -67,7 +67,7 @@ export const TodoForm = () => {
   };
 
   return (
-    <>
+    <Box marginBottom="32px">
       <Box marginBottom="12px">
         <TextField
           fullWidth
@@ -98,6 +98,6 @@ export const TodoForm = () => {
           Создать
         </Button>
       </Box>
-    </>
+    </Box>
   );
 };
