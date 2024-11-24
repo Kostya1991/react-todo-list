@@ -1,18 +1,36 @@
-import {Box, Typography} from "@mui/material";
-import {useSelector} from "react-redux";
+import {Box, FormControlLabel, Radio, RadioGroup, Typography} from "@mui/material";
+import {useDispatch, useSelector} from "react-redux";
 import {getTodoAll} from "../../store/todo/selectors/getTodoAll.selector";
 import {Todo} from "../../common/interfaces/Todo.interface";
 import {TodoCard} from "../todoCard/TodoCard";
 import AccessibilityIcon from "@mui/icons-material/Accessibility";
+import {getFilter} from "../../store/filters/selectors/getFilter.selector";
+import {filterChange} from "../../store/filters/actions/filterChange.action";
 
 export const TodoList = () => {
+  const dispatch = useDispatch();
+
   const todos = useSelector(getTodoAll);
+  const filter = useSelector(getFilter);
 
   return (
     <>
-      <Typography variant="h5" marginBottom="24px">
-        Список Дел
-      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: "24px",
+        }}
+      >
+        <Typography variant="h5">Список Дел</Typography>
+
+        <RadioGroup row value={filter} onChange={(event) => dispatch(filterChange(event.target.value))}>
+          <FormControlLabel value="all" control={<Radio />} label="Все" />
+          <FormControlLabel value="completed" control={<Radio />} label="Выполненные" />
+          <FormControlLabel value="uncompleted" control={<Radio />} label="Не выполненные" />
+        </RadioGroup>
+      </Box>
 
       <Box
         sx={{

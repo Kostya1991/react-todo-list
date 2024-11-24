@@ -6,4 +6,5 @@ export interface Store {
   theme: ThemeState;
   todo: Todo[];
   modal: ModalState;
+  filters: "all" | "completed" | "uncompleted";
 }
