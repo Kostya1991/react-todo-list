@@ -1,6 +1,7 @@
 import {UnknownAction} from "redux";
 
-export interface IAction<T = unknown> extends UnknownAction {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface IAction<T = any> extends UnknownAction {
   type: string;
   payload: T;
 }

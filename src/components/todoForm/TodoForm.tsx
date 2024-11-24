@@ -15,6 +15,7 @@ const INITIAL_VALUE: Todo = {
   createdDate: new Date(),
   description: "",
   title: "",
+  deleted: false,
 };
 
 const INITIAL_INVALID_STATE: ValidationState = {
@@ -59,6 +60,7 @@ export const TodoForm = () => {
       createdDate: new Date(),
       description: todo.description,
       title: todo.title,
+      deleted: false,
     };
 
     dispatch(addTodo(result));

@@ -1,1 +1,2 @@
 export const TODO_ADD_NAME = "TODO_ADD";
+export const TODO_CHECKED_TOOGLE_NAME = "TODO_CHECKED_TOOGLE";
